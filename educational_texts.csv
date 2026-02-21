@@ -1,0 +1,50 @@
+subject,text,difficulty
+Math,A prime number has exactly two distinct positive divisors: 1 and itself.,easy
+Math,The Pythagorean theorem: a^2 + b^2 = c^2 for right triangles.,easy
+Math,A derivative gives the instantaneous rate of change of a function.,medium
+Math,Integration is the reverse process of differentiation and represents accumulated area.,medium
+Math,Complex numbers have the form a + bi where i is the imaginary unit and i^2 = -1.,medium
+Math,The binomial theorem expands (a + b)^n using Pascal's triangle coefficients.,medium
+Math,Linear equations can be solved using substitution elimination or matrix methods.,easy
+Math,Quadratic equations ax^2 + bx + c = 0 can be solved using the quadratic formula.,easy
+Math,Set theory provides foundations for understanding collections of mathematical objects.,medium
+Science,Photosynthesis converts sunlight water and CO2 into glucose and oxygen.,easy
+Science,Newton's second law: force equals mass times acceleration (F = ma).,easy
+Science,Enzymes speed up biochemical reactions by lowering activation energy.,medium
+Science,The cell is the basic unit of life and can be prokaryotic or eukaryotic.,easy
+Science,DNA contains genetic information and replication errors lead to mutations.,medium
+Science,Thermodynamics explains energy transfer and includes concepts like entropy and enthalpy.,medium
+Science,The electromagnetic force governs interactions between charged particles.,medium
+Science,Quantum mechanics describes behavior of particles at atomic and subatomic scales.,hard
+Science,Osmosis is the movement of water across a semipermeable membrane toward more solute.,easy
+Science,Photosynthesis occurs in two stages: light-dependent reactions and the Calvin cycle.,medium
+Computer Science,A loop repeats a block of code until a condition is met.,easy
+Computer Science,A stack follows Last In First Out (LIFO) order.,easy
+Computer Science,Recursion is when a function calls itself to solve a subproblem.,medium
+Computer Science,Object-oriented programming uses classes and objects to model real-world entities.,medium
+Computer Science,A hash table stores data using hash functions for fast O(1) lookup.,medium
+Computer Science,Binary search requires O(log n) time on sorted arrays.,easy
+Computer Science,Graph algorithms like Dijkstra's algorithm find shortest paths efficiently.,hard
+Computer Science,Sorting algorithms like merge sort and quicksort have different time complexities.,medium
+Computer Science,Relational databases use SQL for querying structured data with tables and keys.,medium
+Computer Science,APIs (Application Programming Interfaces) allow different software to communicate.,easy
+History,The Industrial Revolution began in the 18th century and changed production.,medium
+History,Julius Caesar was assassinated in 44 BCE.,easy
+History,The Magna Carta limited the power of English monarchs and influenced law.,medium
+History,World War II lasted from 1939 to 1945 and reshaped global politics.,medium
+History,The Renaissance marked a cultural revival of art literature and science in Europe.,medium
+History,The French Revolution 1789-1799 abolished feudalism and established democracy.,medium
+History,The printing press invented by Gutenberg enabled mass distribution of knowledge.,easy
+History,The American Revolution 1775-1783 established the first modern democratic republic.,medium
+History,The Soviet Union collapsed in 1991 ending the Cold War era.,easy
+History,Ancient Rome developed legal systems and engineering that influenced modern civilization.,medium
+Machine Learning/NLP,Supervised learning trains models using labeled input-output examples.,easy
+Machine Learning/NLP,Overfitting occurs when a model memorizes training data and fails on new data.,medium
+Machine Learning/NLP,Tokenization splits text into words or subword units for processing.,easy
+Machine Learning/NLP,Word embeddings like Word2Vec represent words as dense vectors.,medium
+Machine Learning/NLP,Transformers use attention mechanisms to process sequential data efficiently.,hard
+Machine Learning/NLP,Logistic regression classifies data using a sigmoid activation function.,easy
+Machine Learning/NLP,K-means clustering partitions data into k clusters based on proximity.,medium
+Machine Learning/NLP,Cross-validation estimates model performance on unseen data.,medium
+Machine Learning/NLP,Gradient descent optimizes model parameters by moving toward lower loss.,medium
+Machine Learning/NLP,Feature engineering creates meaningful input variables for machine learning models.,medium
