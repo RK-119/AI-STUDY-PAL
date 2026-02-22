@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Study Pal - AI-Powered Study Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        
+        .small {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+        
+        main {
+            margin: 20px 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        
+        .small-muted {
+            color: #999;
+            font-size: 0.85em;
+        }
+        
+        textarea, input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        
+        textarea:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .error {
+            background-color: #fef2f2;
+            color: #c33;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c33;
+        }
+        
+        .info-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            color: #444;
+        }
+        
+        .info-box strong {
+            color: #667eea;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.85em;
+        }
+        
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .feature {
+            background-color: #f9f9f9;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .feature strong {
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 AI Study Pal</h1>
+            <p class="small">Your AI-Powered Academic Study Assistant</p>
+            <p class="small-muted">Enter your study text and expected study hours. We'll generate a personalized study plan, quiz, summary, and learning resources!</p>
+        </header>
+
+        <main>
+            {% if error %}
+            <div class="error">❌ {{ error }}</div>
+            {% endif %}
+
+            <form method="post" action="{{ url_for('classify') }}" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="text">📖 Educational Text</label>
+                    <p class="small-muted">Paste or type the educational content you want to study</p>
+                    <textarea 
+                        id="text" 
+                        name="text" 
+                        class="input" 
+                        placeholder="Example: 'The Pythagorean theorem states that in a right triangle, a² + b² = c² where c is the hypotenuse...'" 
+                        required>
+                    </textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <label for="hours">⏱️ Study Hours</label>
+                        <p class="small-muted">How many hours do you plan to study?</p>
+                        <input 
+                            type="number" 
+                            id="hours" 
+                            name="hours" 
+                            min="1" 
+                            max="100" 
+                            value="10" 
+                            required>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <button type="submit">🚀 Generate Study Plan</button>
+                </div>
+            </form>
+
+            <div class="features">
+                <div class="feature">
+                    <strong>✓ Smart Classification</strong><br>AI identifies your subject automatically
+                </div>
+                <div class="feature">
+                    <strong>✓ Study Plan</strong><br>5-day personalized learning schedule
+                </div>
+                <div class="feature">
+                    <strong>✓ Quiz Generator</strong><br>Practice questions with difficulty levels
+                </div>
+                <div class="feature">
+                    <strong>✓ Text Summarization</strong><br>Extract key concepts automatically
+                </div>
+                <div class="feature">
+                    <strong>✓ Study Tips</strong><br>Subject-specific learning strategies
+                </div>
+                <div class="feature">
+                    <strong>✓ Resources</strong><br>Learning links for your subject
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>📝 How It Works:</strong><br>
+                This app uses Machine Learning (subject classification), Natural Language Processing (text analysis), 
+                and Deep Learning (text summarization) to create a personalized study experience. Your study plan 
+                can be downloaded as a CSV file!
+            </div>
+        </main>
+
+        <footer>
+            <p>AI Study Pal v1.0 | Powered by Machine Learning & NLP | Made for Students</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
