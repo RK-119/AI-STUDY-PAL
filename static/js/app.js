@@ -1,3 +1,4 @@
+//                                      ☀️
 // static/js/app.js - minimal client behavior for forms and UI feedback
 document.addEventListener('DOMContentLoaded', function () {
   // simple submit button feedback
@@ -31,4 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
 });
+//  By ☀️
