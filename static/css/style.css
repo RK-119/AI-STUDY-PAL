@@ -1,3 +1,4 @@
+/*                                                                                    ☀️                                                                                  */
 /* static/css/style.css - basic layout and utilities */
 :root{
   --bg:#f7f7f9;
@@ -68,4 +69,6 @@ button:disabled{opacity:.6;cursor:default}
   margin-top:12px;
 }
 
+
 .small-muted{font-size:0.85rem;color:var(--muted)}
+/* By ☀️ */
